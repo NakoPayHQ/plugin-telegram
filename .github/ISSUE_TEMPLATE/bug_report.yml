@@ -1,0 +1,48 @@
+name: Bug report
+description: Something is broken or behaves unexpectedly.
+labels: ["bug"]
+body:
+  - type: input
+    id: plugin-version
+    attributes:
+      label: Plugin version
+      placeholder: "0.1.0"
+    validations: { required: true }
+  - type: input
+    id: platform-version
+    attributes:
+      label: Platform version
+      description: "WHMCS / WordPress / PrestaShop / Telegram bot version"
+      placeholder: "WHMCS 8.10"
+    validations: { required: true }
+  - type: input
+    id: php-version
+    attributes:
+      label: PHP / Python version (if relevant)
+      placeholder: "PHP 8.2"
+  - type: dropdown
+    id: api-mode
+    attributes:
+      label: API key mode
+      options: ["sk_test_*", "sk_live_*", "Not configured yet"]
+    validations: { required: true }
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Install zip...
+        2. Configure...
+        3. Click...
+    validations: { required: true }
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected vs actual
+    validations: { required: true }
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs / screenshots
+      description: Paste relevant error logs (scrub any secrets first).
+      render: shell

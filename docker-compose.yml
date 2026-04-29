@@ -1,0 +1,11 @@
+services:
+  bot:
+    build: .
+    image: nakopay/plugin-telegram:0.1.0
+    restart: unless-stopped
+    env_file: .env
+    volumes:
+      - bot-data:/data
+
+volumes:
+  bot-data:

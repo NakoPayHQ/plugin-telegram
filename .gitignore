@@ -1,0 +1,19 @@
+# Per-plugin Python ignores (telegram bot)
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv/
+venv/
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Local SQLite store
+*.sqlite3
+*.sqlite3-journal
+
+# Env
+.env
+.env.local

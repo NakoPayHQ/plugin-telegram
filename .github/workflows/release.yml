@@ -1,0 +1,37 @@
+name: Release plugin-telegram
+
+on:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: No internal URLs
+        run: bash ./scripts/check-no-internal-urls.sh ./
+      - name: Stage bot as 'telegram/'
+        run: |
+          rm -rf build
+          mkdir -p build/telegram
+          cp -R ./. build/telegram/
+          rm -rf build/telegram/build build/telegram/.git build/telegram/.github \
+                 build/telegram/node_modules build/telegram/vendor \
+                 build/telegram/.venv build/telegram/dist
+          find build/telegram \( -name __pycache__ -o -name '*.egg-info' \) \
+            -type d -prune -exec rm -rf {} +
+          find build/telegram -name '*.pyc' -delete
+      - name: Build zip
+        run: |
+          cd build
+          zip -r ../nakopay-telegram.zip telegram
+      - name: GitHub release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: nakopay-telegram.zip
+          generate_release_notes: true
+          name: Telegram Bot ${{ github.ref_name }}
