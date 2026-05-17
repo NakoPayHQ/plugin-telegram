@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Documentation
+    url: https://nakopay.com/docs/integrations/telegram
+    about: Setup, configuration, and troubleshooting docs.
+  - name: Email support
+    url: mailto:support@nakopay.com
+    about: Account, billing, or sensitive issues that don't belong on a public tracker.
+  - name: All NakoPay plugins
+    url: https://github.com/NakoPayHQ
+    about: Browse other NakoPay integrations.
