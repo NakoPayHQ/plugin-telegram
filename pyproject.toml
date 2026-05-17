@@ -1,6 +1,6 @@
 [project]
 name = "nakopay-telegram"
-version = "0.1.0"
+version = "1.1.0"
 description = "Self-host Telegram bot for NakoPay merchants. Long-polls Telegram and proxies /invoice, /balance, /last commands to the NakoPay REST API."
 readme = "README.md"
 license = { text = "MIT" }
